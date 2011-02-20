@@ -16,7 +16,7 @@ get '/:zoom/:row/:column' do
   rows[0][0]
 end
 
-get '/map'
+get '/map' do
   haml :index
 end
 
