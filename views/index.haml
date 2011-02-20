@@ -10,11 +10,10 @@
     .container(document.getElementById("map").appendChild(po.svg("svg")))
     .center({lat: -1.6, lon: 119})
     .zoom(6)
-    .add(po.interact())
-    .add(po.hash());
+    .add(po.interact());
+  
   
   map.add(po.image()
        .url(po.url("/tiles/{Z}/{X}/{Y}")));
 
-  map.add(po.compass()
-    .pan("none"));
+
