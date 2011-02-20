@@ -15,7 +15,7 @@
     .add(po.hash());
 
   map.add(po.image()
-    .url(po.url("http://mpa-tiles.heroku.com/{Z}/{Y}/{X}")
+    .url(po.url("/{Z}/{Y}/{X}")
     .hosts(["a.", "b.", "c.", ""])));
 
   map.add(po.compass()
