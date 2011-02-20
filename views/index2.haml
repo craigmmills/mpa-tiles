@@ -1,0 +1,17 @@
+%script{:type => "text/javascript",
+        :src  => "http://www.openlayers.org/api/OpenLayers.js"}
+
+.test{:id => 'map'}
+
+
+:javascript
+  map = new OpenLayers.Map("map");
+  var newLayer = new OpenLayers.Layer.OSM("New Layer", "/tiles/${z}/${x}/${y}", {numZoomLevels: 9});
+  map.addLayer(newLayer);
+  
+  map.setCenter(new OpenLayers.LonLat(119,-1.6)
+    .transform(
+      new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+      new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator Projection
+    ), 6 // Zoom level
+  );
