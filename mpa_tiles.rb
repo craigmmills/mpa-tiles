@@ -1,14 +1,10 @@
 require 'sinatra'
 require 'sqlite3'
-
-
+require 'haml'
 
 get '/:zoom/:row/:column' do
   content_type 'image/png'
   db = SQLite3::Database.new "data/wdpa_test_z5to8.mbtiles"
-  # Find a few rows
-  
-  
   rows = db.execute("select images.tile_data 
                      from map 
                      inner join images 
@@ -18,5 +14,9 @@ get '/:zoom/:row/:column' do
                      tile_column = #{params[:column]}")
   
   rows[0][0]
-  
 end
+
+get '/map'
+  haml :index
+end
+
