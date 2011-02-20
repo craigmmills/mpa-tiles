@@ -18,7 +18,7 @@ get '/tiles/:zoom/:column/:row' do
                      tile_row = #{y} AND 
                      tile_column = #{params[:column]}")
   
-  rows[0][0] unless rows.length == 0
+  rows[0][0] unless rows.empty?
 end
 
 get '/' do
