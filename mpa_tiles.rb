@@ -1,5 +1,3 @@
-require 'rubygems'
-require 'sinatra'
 require 'sqlite3'
 
 
