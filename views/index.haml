@@ -1,1 +1,22 @@
-.test Hello World
+%script{:type => "text/javascript",
+        :src  => "javascripts/polymaps.js"}
+
+.test{:id => 'map'}
+
+
+:javascript
+  var po = org.polymaps;
+
+  var map = po.map()
+    .container(document.getElementById("map").appendChild(po.svg("svg")))
+    .center({lat: -1.6, lon: 119})
+    .zoom(6)
+    .add(po.interact())
+    .add(po.hash());
+
+  map.add(po.image()
+    .url(po.url("http://mpa-tiles.heroku.com/{Z}/{Y}/{X}")
+    .hosts(["a.", "b.", "c.", ""])));
+
+  map.add(po.compass()
+    .pan("none"));
